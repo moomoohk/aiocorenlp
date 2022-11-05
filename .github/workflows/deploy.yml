@@ -2,6 +2,7 @@ name: Deploy and Release
 
 # Controls when the workflow will run
 on:
+  workflow_dispatch:
   # Triggers the workflow on version change
   push:
     branches:
