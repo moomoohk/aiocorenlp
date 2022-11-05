@@ -29,7 +29,7 @@ jobs:
       - name: Get Version
         id: get-version
         run: |
-          python -c "from aiocorenlp import __version__; print(f'::set-output name=version::v{__version__}');"
+          python -c "from aiocorenlp import __version__; print(f'version=v{__version__}');" >> $GITHUB_OUTPUT
       - name: Check Tag
         uses: mukunku/tag-exists-action@v1.1.0
         id: check-tag
@@ -47,7 +47,7 @@ jobs:
 
       - name: Generate Changelog
         id: generate-changelog
-        uses: loopwerk/tag-changelog@v1
+        uses: loopwerk/tag-changelog@v1.0.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/tag-changelog-config.js
