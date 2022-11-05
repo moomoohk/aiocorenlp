@@ -24,7 +24,7 @@ jobs:
       - name: Get Version
         id: get-version
         run: |
-          python -c "from aiocorenlp.version import __version__; print(f'::set-output name=version::v{__version__}');"
+          python -c "from aiocorenlp import __version__; print(f'::set-output name=version::v{__version__}');"
       - name: Check Tag
         uses: mukunku/tag-exists-action@v1.0.0
         id: check-tag

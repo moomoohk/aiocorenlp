@@ -2,8 +2,8 @@ import asyncio
 import logging
 from enum import Enum
 from logging import NullHandler
-from version import __version__
 
+from aiocorenlp.version import __version__
 
 __all__ = [
     "__version__",
