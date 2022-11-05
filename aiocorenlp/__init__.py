@@ -2,6 +2,7 @@ import asyncio
 import logging
 from enum import Enum
 from logging import NullHandler
+from platform import platform
 
 from aiocorenlp.version import __version__
 
@@ -22,8 +23,9 @@ __all__ = [
 logger = logging.getLogger(__name__)
 logger.addHandler(NullHandler())
 
-loop = asyncio.ProactorEventLoop()
-asyncio.set_event_loop(loop)
+if platform() == "Windows":
+    loop = asyncio.ProactorEventLoop()
+    asyncio.set_event_loop(loop)
 
 
 EntityTypePair = tuple[str, str]
