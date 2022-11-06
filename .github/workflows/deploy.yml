@@ -2,7 +2,6 @@ name: Deploy and Release
 
 # Controls when the workflow will run
 on:
-  workflow_dispatch:
   # Triggers the workflow on version change
   push:
     branches:
@@ -53,7 +52,7 @@ jobs:
           config_file: .github/tag-changelog-config.js
 
       - name: PyPI Deployment
-        uses: casperdcl/deploy-pypi@v2
+        uses: casperdcl/deploy-pypi@v2.2.1
         with:
           # PyPI password or API token
           password: ${{ secrets.PYPI_TOKEN }}
@@ -63,7 +62,7 @@ jobs:
           pip: true
 
       - name: Github Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.14
         with:
           tag_name: ${{ steps.get-version.outputs.version }}
           body: ${{ steps.generate-changelog.outputs.changes }}
