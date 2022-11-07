@@ -33,6 +33,10 @@ This library runs the Stanford code in a server mode and sends input text over T
 * [Method name mangling](https://docs.python.org/3/tutorial/classes.html#private-variables) is inexplicably enabled in the [`ner.client.NER` class](https://https://github.com/dat/pyner/blob/master/ner/client.py), making subclassing not practical.
 * The ner library appears to be abandoned.
 
+### Differences from [`stanza`](https://github.com/stanfordnlp/stanza)
+* `asyncio` support.
+* Stanza aims to provide a wider range of uses.
+
 ## Basic Usage
 
 ```pycon
