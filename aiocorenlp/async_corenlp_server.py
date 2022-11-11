@@ -119,10 +119,21 @@ class AsyncCorenlpServer(ABC):
         self._actual_port = None
 
     def get_socket(self):
-        if self._process is None:
+        """Get socket object which facilitates communication with server.
+
+        :return: Socket object or None if server is not running
+        """
+        if not self.is_running():
             return None
 
         return AsyncCorenlpSocket(self._actual_port, "127.0.0.1", self.output_format)
+
+    def is_running(self):
+        """Get server state.
+
+        :return: True if running else False
+        """
+        return self._process is not None
 
     async def __aenter__(self):
         await self.start()
